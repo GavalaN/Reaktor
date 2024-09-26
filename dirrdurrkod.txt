@@ -1,0 +1,3 @@
+SoundPlayer player = new SoundPlayer(path);
+player.Load();
+player.Play();
