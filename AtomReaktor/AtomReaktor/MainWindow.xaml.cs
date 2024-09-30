@@ -24,5 +24,35 @@ namespace AtomReaktor
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnBeinditas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLeallitas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGeneraltEnergia_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnHutovizBeengedese_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnKilepes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

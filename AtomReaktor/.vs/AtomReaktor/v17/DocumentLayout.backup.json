@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Tanulo\\source\\repos\\AtomReaktor\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{455B514D-3405-46FD-808F-DB439DD9D680}|AtomReaktor\\AtomReaktor.csproj|c:\\users\\tanulo\\source\\repos\\atomreaktor\\atomreaktor\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{455B514D-3405-46FD-808F-DB439DD9D680}|AtomReaktor\\AtomReaktor.csproj|solutionrelative:atomreaktor\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Tanulo\\source\\repos\\AtomReaktor\\AtomReaktor\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "AtomReaktor\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Tanulo\\source\\repos\\AtomReaktor\\AtomReaktor\\MainWindow.xaml",
+              "RelativeToolTip": "AtomReaktor\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-26T07:45:01.947Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
