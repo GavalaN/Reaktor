@@ -27,7 +27,12 @@ namespace AtomReaktor
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri("E:\\repos\\_Github\\Reaktor\\AtomReaktor\\AtomReaktor\\bin\\Debug\\Images\\ep.jpg");
+            bitmap.EndInit();
 
+            imgReaktor.Source = bitmap;
         }
 
         private void btnBeinditas_Click(object sender, RoutedEventArgs e)
@@ -52,7 +57,7 @@ namespace AtomReaktor
 
         private void btnKilepes_Click(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Shutdown();
         }
     }
 }
