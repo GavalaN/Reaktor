@@ -29,7 +29,7 @@ namespace AtomReaktor
         {
             BitmapImage bitmap = new BitmapImage();
             bitmap.BeginInit();
-            bitmap.UriSource = new Uri("E:\\repos\\_Github\\Reaktor\\AtomReaktor\\AtomReaktor\\bin\\Debug\\Images\\ep.jpg");
+            bitmap.UriSource = new Uri("pack://application:,,,/Images/ep.jpg", UriKind.Absolute);
             bitmap.EndInit();
 
             imgReaktor.Source = bitmap;
@@ -37,12 +37,33 @@ namespace AtomReaktor
 
         private void btnBeinditas_Click(object sender, RoutedEventArgs e)
         {
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri("pack://application:,,,/Images/felrobbant.jpg", UriKind.Absolute);
+            bitmap.EndInit();
 
+            imgReaktor.Source = bitmap;
+
+            try
+            {
+                MediaPlayer player = new MediaPlayer();
+                player.Open(new Uri("pack://application:,,,/Audio/dirrdurr.mp3", UriKind.Absolute));
+                player.Play();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hiba: {ex.Message}");
+            }
         }
 
         private void btnLeallitas_Click(object sender, RoutedEventArgs e)
         {
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri("pack://application:,,,/Images/ep.jpg", UriKind.Absolute);
+            bitmap.EndInit();
 
+            imgReaktor.Source = bitmap;
         }
 
         private void btnGeneraltEnergia_Click(object sender, RoutedEventArgs e)

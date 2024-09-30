@@ -95,4 +95,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Resource Include="Images\ep.jpg" />
+    <Resource Include="Images\felrobbant.jpg" />
+    <Resource Include="Audio\dirrdurr.mp3" />
+  </ItemGroup>
 </Project>
