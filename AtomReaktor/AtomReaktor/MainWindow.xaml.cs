@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Media;
 
 namespace AtomReaktor
 {
@@ -46,8 +47,9 @@ namespace AtomReaktor
 
             try
             {
-                MediaPlayer player = new MediaPlayer();
-                player.Open(new Uri("pack://application:,,,/Audio/dirrdurr.mp3", UriKind.Absolute));
+                Uri uri = new Uri(@"C:\Users\GavalaN\source\repos\GavalaN\Reaktor\dirrdurr.mp3");
+                var player = new MediaPlayer();
+                player.Open(uri);
                 player.Play();
             }
             catch (Exception ex)
