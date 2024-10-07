@@ -33,41 +33,21 @@ namespace AtomReaktor
         public void HutovizBenged()
         {
             hom = 40;
+            lbhofok.Content = $"Hőfok: {hom} °C";
         }
 
         public void GenealtEnergia()
         {
-            Aram = rnd.NextDouble() * (aram * 2 - aram) + aram;
-        }
-
-        public static bool Leallitas()
-        {
-            if (hom >= 70)
-            {
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri("pack://application:,,,/Images/felrobbant.jpg", UriKind.Absolute);
-                bitmap.EndInit();
-
-                imgReaktor.Source = bitmap;
-                
-                return false;
-            }
-            else
-            {
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri("pack://application:,,,/Images/ep.jpg", UriKind.Absolute);
-                bitmap.EndInit();
-
-                imgReaktor.Source = bitmap;
-                return true;
-            }
+            aram += Math.Round(rnd.NextDouble() * (2.5 - 1) + 1,2);
+            lbgeneraltenergia.Content = $"Generált Energia: {aram} GW";
         }
 
         public MainWindow()
         {
             InitializeComponent();
+            btnLeallitas.IsEnabled = false;
+            btnHutovizBeengedese.IsEnabled = false;
+            btnGeneraltEnergia.IsEnabled = false;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -82,6 +62,10 @@ namespace AtomReaktor
 
         private void btnBeinditas_Click(object sender, RoutedEventArgs e)
         {
+            btnBeinditas.IsEnabled = false;
+            btnLeallitas.IsEnabled = true;
+            btnHutovizBeengedese.IsEnabled = true;
+            btnGeneraltEnergia.IsEnabled = true;
             aktiv_e = true;
             BitmapImage bitmap = new BitmapImage();
             bitmap.BeginInit();
@@ -105,7 +89,24 @@ namespace AtomReaktor
 
         private void btnLeallitas_Click(object sender, RoutedEventArgs e)
         {
-            Leallitas();
+            if (hom >= 70)
+            {
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri("pack://application:,,,/Images/felrobbant.jpg", UriKind.Absolute);
+                bitmap.EndInit();
+
+                imgReaktor.Source = bitmap;
+            }
+            else
+            {
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri("pack://application:,,,/Images/ep.jpg", UriKind.Absolute);
+                bitmap.EndInit();
+
+                imgReaktor.Source = bitmap;
+            }
         }
 
         private void btnGeneraltEnergia_Click(object sender, RoutedEventArgs e)
