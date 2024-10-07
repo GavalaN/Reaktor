@@ -1,3 +1,4 @@
 # Reaktor
 
-Az egész egy nagy szívás. <3
+Az egÃ©sz egy nagy szÃ­vÃ¡s. <3
+Igaz!!!
