@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Media;
+using System.Timers;
 
 namespace AtomReaktor
 {
@@ -30,6 +31,16 @@ namespace AtomReaktor
         public int Hom { get => Hom; private set => rnd.Next(40, 101); }
         public double Aram { get => aram; set => aram = rnd.NextDouble() * (2.5 - 1) + 1; }
 
+        public async Task HomersekletAsync()
+        {
+            while (aktiv_e)
+            {
+                hom += rnd.Next(2, 6);
+                lbhofok.Content = $"Hőfok: {hom} °C";
+                await Task.Delay(1000);
+            }
+        }
+        
         public void HutovizBenged()
         {
             hom = 40;
@@ -48,6 +59,7 @@ namespace AtomReaktor
             btnLeallitas.IsEnabled = false;
             btnHutovizBeengedese.IsEnabled = false;
             btnGeneraltEnergia.IsEnabled = false;
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -67,6 +79,9 @@ namespace AtomReaktor
             btnHutovizBeengedese.IsEnabled = true;
             btnGeneraltEnergia.IsEnabled = true;
             aktiv_e = true;
+            hom = 0;
+            lbhofok.Content = $"Hőfok: {hom} °C";
+            HomersekletAsync();
             BitmapImage bitmap = new BitmapImage();
             bitmap.BeginInit();
             bitmap.UriSource = new Uri("pack://application:,,,/Images/ep.jpg", UriKind.Absolute);
@@ -91,21 +106,37 @@ namespace AtomReaktor
         {
             if (hom >= 70)
             {
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri("pack://application:,,,/Images/felrobbant.jpg", UriKind.Absolute);
-                bitmap.EndInit();
+                var dialogResult = MessageBox.Show("Biztos leakarod állítani a reaktor?(fel fog robbanni!🧨🧨)", "Some Title", MessageBoxButton.YesNo);
+                if (dialogResult == MessageBoxResult.Yes)
+                {
+                    aktiv_e = false;
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri("pack://application:,,,/Images/felrobbant.jpg", UriKind.Absolute);
+                    bitmap.EndInit();
 
-                imgReaktor.Source = bitmap;
+                    imgReaktor.Source = bitmap;
+
+                    btnBeinditas.IsEnabled = true;
+                    btnLeallitas.IsEnabled = false;
+                    btnHutovizBeengedese.IsEnabled = false;
+                    btnGeneraltEnergia.IsEnabled = false;
+                }
+                
             }
             else
             {
+                aktiv_e = false;
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri("pack://application:,,,/Images/ep.jpg", UriKind.Absolute);
                 bitmap.EndInit();
 
                 imgReaktor.Source = bitmap;
+                btnBeinditas.IsEnabled = true;
+                btnLeallitas.IsEnabled = false;
+                btnHutovizBeengedese.IsEnabled = false;
+                btnGeneraltEnergia.IsEnabled = false;
             }
         }
 
